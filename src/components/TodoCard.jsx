@@ -1,14 +1,14 @@
 import React from 'react'
 
 const TodoCard = (props) => {
-    const { todo, handleDeleteTodo, index } = props
+    const { todo, handleDeleteTodo, index, handleCompletedTodo } = props
 
     return (
         <div className=" card todo-item ">
             <p> {todo.input} </p>
 
             <div className="todo-buttons ">
-                <button>
+                <button onClick={() => handleCompletedTodo(index)}>
                     <h6>Done</h6>
                 </button>
 

@@ -1,12 +1,17 @@
 import React from 'react'
 import TodoCard from './TodoCard.jsx'
 
-const TodoList = ({ todos, selectedTab, handleDeleteTodo }) => {
+const TodoList = ({
+    todos,
+    selectedTab,
+    handleDeleteTodo,
+    handleCompletedTodo,
+}) => {
     const tab = 'Open'
     const [tabSelector, setTabSelector] = React.useState('All')
 
     const filteredTodoList =
-        tab === 'All'
+        selectedTab === 'All'
             ? todos
             : selectedTab === 'Completed'
               ? todos.filter((val) => val.completed)
@@ -20,6 +25,7 @@ const TodoList = ({ todos, selectedTab, handleDeleteTodo }) => {
                         todo={todo}
                         index={index}
                         handleDeleteTodo={handleDeleteTodo}
+                        handleCompletedTodo={handleCompletedTodo}
                     />
                 )
             })}
